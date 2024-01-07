@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" xmlns:background="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Crop</title>
+    <style>
+      input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+         input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.3); /* Adjust the alpha value to increase transparency */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+    </style>
+
+  </head>
+<body style="background-image: url('https://img.freepik.com/free-photo/plant-growing-soil-with-sun-shining-it_1340-38891.jpg?size=626&ext=jpg&ga=GA1.1.1852363017.1696869177&semt=sph'); background-repeat: no-repeat; background-size: cover;"
+ >
+    <h1 class="text-center text-success">Crop yield prediction</h1>
+    <div class="container">
+        <h1 class="text-center text-success">Crop Features Here</h1>
+        <a href="https://docs.google.com/document/d/1R9LZhqjzwYwerpaTzoiZyDTI0g-j6DtU/edit?usp=sharing&ouid=108928488861011075207&rtpof=true&sd=true">Guidelines Page</a>
+      <form action="/predict" method="POST">
+
+        <div class="form-group">
+          <label for="Crop_Year">Year</label>
+             <select id="Crop_Year" name="Crop_Year">
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+             </select>
+
+        </div>
+        <div class="form-group">
+          <label for="Annual_Rainfall">Annual_Rainfall</label>
+            <input type="number" class="form-control" name="Annual_Rainfall" step="any" placeholder="value in mm">
+        </div>
+        <div class="form-group">
+          <label for="Area">Area</label>
+            <input type="number" class="form-control" name="Area" step="any" placeholder="enter value in hectares">
+        </div>
+        <div class="form-group">
+          <label for="Production">Estimated Yield</label>
+            <input type="number" class="form-control" name="Production" step="any" placeholder="value in metric tonnes">
+        </div>
+        <div class="form-group">
+          <label for="Fertilizer">Fertilizer</label>
+            <input type="number" class="form-control" name="Fertilizer" step="any" placeholder="enter value in kg ">
+        </div>
+         <div class="form-group">
+          <label for="Pesticide">Pesticide</label>
+            <input type="number" class="form-control" name="Pesticide" step="any" placeholder="enter value in kg ">
+        </div>
+        <div class="form-group">
+          <label for="Crop">Crop</label>
+            <select id="Crop" name="Crop">
+                <option value="Arecanut">Arecanut</option>
+                <option value="Arhar">Arhar</option>
+                <option value="Castor seed">Castor seed</option>
+                <option value="Coconut">Coconut</option>
+                 <option value="Cotton(lint)">Cotton(lint)</option>
+                <option value="Dry chillies">Dry chillies</option>
+                <option value="Gram">Gram</option>
+                <option value="Jute">Jute</option>
+                <option value="Linseed">Linseed</option>
+                <option value="Maize">Maize</option>
+                <option value="Mesta">Mesta</option>
+                <option value="Niger seed">Niger seed</option>
+                <option value="Cotton(lint)">Cotton(lint)</option>
+                <option value="Onion">Onion</option>
+                <option value="Other Rabi pulses">Other Rabi pulses</option>
+                <option value="Potato">Potato</option>
+                <option value="Rapeseed">Rapeseed</option>
+                <option value="Rice">Rice</option>
+                <option value="Sesamum">Sesamum</option>
+                <option value="Small millets">Small millets</option>
+                <option value="Tapioca">Tapioca</option>
+                <option value="Tobacco">Tobacco</option>
+                <option value="Turmeric">Turmeric</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Bajra">Bajra</option>
+                <option value="Black pepper">Black pepper</option>
+                <option value="Cardamom">Cardamom</option>
+                <option value="Coriander">Coriander</option>
+
+
+            </select>
+
+        </div>
+        <div class="form-group">
+          <label for="State">State</label>
+           <select id="State" name="State">
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+             <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+               <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+             <option value="Puducherry">Puducherry</option>
+
+           </select>
+
+        </div>
+
+        <button type="submit" class="btn btn-danger bgn-lg mt-4">Predict</button>
+      </form>
+      </div>
+      {% if result %}
+      <h1 class="text-center text-danger" style="color:#008080;">
+        Result:{{result}}
+      </h1>
+      {% endif %}
+      {% if predicted_value %}
+      <h1 class="text-center text-danger" style="color: #008080;">
+        Predicted Yield Productions:<br>
+        {{predicted_value}}
+
+      </h1>
+      {% endif %}
+
+
+  </body>
+</html>
